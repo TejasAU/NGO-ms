@@ -8,12 +8,12 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-// const db = mysql.createpool({
-//     host:"localhost",
-//     user:"root",
-//     password:"root",
-//     database:""
-// })
+const db = mysql.createPool({
+    host:"localhost",
+    user:"root",
+    password:"root",
+    database:""
+})
 
 app.get("/" , (req , res) => {
     res.send("Hello Express");
