@@ -16,6 +16,11 @@ const db = mysql.createPool({
 });
 
 app.get("/" , (req , res) => {
+    const sqlInsert = "insert into partner ( partner_id , name , contact_no , email ) values ('p008','test','test','test')";
+    db.query(sqlInsert, (err, result) => {
+        console.log("error", err);
+        console.log("result", result);
+    })
     res.send("Hello Express");
 })
 
