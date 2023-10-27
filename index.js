@@ -11,16 +11,16 @@ app.use(bodyParser.urlencoded({extended: true}));
 const db = mysql.createPool({
     host:"localhost",
     user:"root",
-    password:"root",
-    database:""
-})
+    password:"root1234",
+    database:"ngo2"
+});
 
 app.get("/" , (req , res) => {
     res.send("Hello Express");
 })
 
 app.listen(5000, () => {
-    console.log('hello world');
+    console.log('Server started on localhost: 5000');
 })
 
 //testing
