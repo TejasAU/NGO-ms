@@ -22,6 +22,16 @@ app.get("/api/get" , (req , res) => {
     })
 })
 
+app.post("/api/post" , (req , res ) => {
+    const {Partner_id , Name , email , contact_no } = req.body;
+    const sqlInsert = "insert into partner (Partner_id , name , email , contact_no ) values ( ? , ? , ? , ?)";
+    db.query(sqlInsert , [ Partner_id , Name , email , contact_no], (error , result) => {
+        if(error){
+            console.log(error);
+        }
+    })
+})
+
 app.get("/" , (req , res) => {
     res.send("Hello Express");
 })

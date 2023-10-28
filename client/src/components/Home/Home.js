@@ -18,10 +18,14 @@ const Home = () => {
     }, []);
     return(
         <div style={{marginTop: "150 px"}}>
+            <Link to="/addContact">
+                <button className="btn btn-contact">Add Contact</button>
+            </Link>
             <table className="styled-table">
                 <thead>
                     <tr>
                         <th style={{textAlign: "center"}}>No.</th>
+                        <th style={{textAlign: "center"}}>ID</th>
                         <th style={{textAlign: "center"}}>Name</th>
                         <th style={{textAlign: "center"}}>Email</th>
                         <th style={{textAlign: "center"}}>Contact</th>
@@ -33,6 +37,7 @@ const Home = () => {
                         return(
                             <tr key={item.id}>
                                 <th scope="row">{index+1}</th>
+                                <td>{item.Partner_id}</td>
                                 <td>{item.Name}</td>
                                 <td>{item.email}</td>
                                 <td>{item.contact_no}</td>
