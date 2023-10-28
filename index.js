@@ -15,12 +15,14 @@ const db = mysql.createPool({
     database:"ngo2"
 });
 
-app.get("/" , (req , res) => {
-    const sqlInsert = "insert into partner ( partner_id , name , contact_no , email ) values ('p008','test','test','test')";
-    db.query(sqlInsert, (err, result) => {
-        console.log("error", err);
-        console.log("result", result);
+app.get("/api/get" , (req , res) => {
+    const displayPartner = "select * from partner";
+    db.query(displayPartner, (error , result) =>{
+        res.send(result);
     })
+})
+
+app.get("/" , (req , res) => {
     res.send("Hello Express");
 })
 
