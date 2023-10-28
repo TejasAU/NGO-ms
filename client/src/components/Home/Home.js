@@ -33,9 +33,9 @@ const Home = () => {
                         return(
                             <tr key={item.id}>
                                 <th scope="row">{index+1}</th>
-                                <td>{item.name}</td>
+                                <td>{item.Name}</td>
                                 <td>{item.email}</td>
-                                <td>{item.contact}</td>
+                                <td>{item.contact_no}</td>
                                 <td>
                                     <Link to={`/update/${item.id}`}>
                                     <button className="btn btn-edit">
