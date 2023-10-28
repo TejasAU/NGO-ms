@@ -1,12 +1,19 @@
 import './App.css';
-import { ToastContainer, toast } from 'react-toastify';
+import { BrowserRouter , Routes , Route } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Home from './components/Home/Home';
 
 function App() {
   return (
-    <div className="App">
-      <h1>hello client</h1>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <ToastContainer position="top-center"/>
+        <Routes>
+          <Route exact path='/' Component={Home}/>
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
