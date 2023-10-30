@@ -66,6 +66,28 @@ app.put("/api/partner/update/:Partner_id" , (req , res) => {
     })
 })
 
+//Staff API
+
+app.get("/api/staff/get" , (req , res) => {
+    const displayStaff = "select * from staff";
+    db.query(displayStaff, (error , result) =>{
+        res.send(result);
+    })
+})
+
+app.delete("/api/staff/remove/:ST_id" , (req , res ) => {
+    const { ST_id } = req.params;
+    const sqlRemove = "delete from staff where ST_id = ?";
+    db.query(sqlRemove , ST_id , (error , result) => {
+        if( error ) {
+            console.log(error);
+        }
+    })
+
+})
+
+
+
 app.get("/" , (req , res) => {
     res.send("Hello Express");
 })

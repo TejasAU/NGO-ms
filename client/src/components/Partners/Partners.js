@@ -58,11 +58,6 @@ const Partners = () => {
                                     <button className="btn btn-delete" onClick ={() => deleteContact(item.Partner_id)}>
                                         Delete
                                     </button>
-                                    <Link to={`/view/${item.id}`}>
-                                    <button className="btn btn-view">
-                                        View
-                                    </button>
-                                    </Link>
                                 </td>
                             </tr>
                         )
