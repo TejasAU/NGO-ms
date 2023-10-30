@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Partners from './components/Partners/Partners';
 import AddEdit from './components/Partners/AddPartner';
 import Staff from './components/Staff/Staff'
+import Event from './components/Event/Event';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path='/addContact' Component={AddEdit}/>
           <Route path='/update/:id' Component={AddEdit}/>
           <Route path='/staff' Component={Staff}/>
+          <Route path='/event' Component={Event}/>
 
         </Routes>
       </div>

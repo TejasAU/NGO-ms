@@ -86,7 +86,25 @@ app.delete("/api/staff/remove/:ST_id" , (req , res ) => {
 
 })
 
+//Event API
 
+app.get("/api/event/get" , (req , res) => {
+    const displayEvent = "select * from event";
+    db.query(displayEvent, (error , result) =>{
+        res.send(result);
+    })
+})
+
+app.delete("/api/event/remove/:Event_id" , (req , res ) => {
+    const { Event_id } = req.params;
+    const sqlRemove = "delete from event where Event_id = ?";
+    db.query(sqlRemove , Event_id , (error , result) => {
+        if( error ) {
+            console.log(error);
+        }
+    })
+
+})
 
 app.get("/" , (req , res) => {
     res.send("Hello Express");
