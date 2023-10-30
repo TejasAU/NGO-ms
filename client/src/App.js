@@ -6,6 +6,7 @@ import Partners from './components/Partners/Partners';
 import AddEdit from './components/Partners/AddPartner';
 import Staff from './components/Staff/Staff'
 import Event from './components/Event/Event';
+import Donor from './components/Donor/Donor';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/update/:id' Component={AddEdit}/>
           <Route path='/staff' Component={Staff}/>
           <Route path='/event' Component={Event}/>
+          <Route path='/donor' Component={Donor}/>
 
         </Routes>
       </div>

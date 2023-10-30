@@ -106,6 +106,26 @@ app.delete("/api/event/remove/:Event_id" , (req , res ) => {
 
 })
 
+//Donor API
+
+app.get("/api/donor/get" , (req , res) => {
+    const displayEvent = "select * from donor";
+    db.query(displayEvent, (error , result) =>{
+        res.send(result);
+    })
+})
+
+app.delete("/api/donor/remove/:Donor_id" , (req , res ) => {
+    const { Donor_id } = req.params;
+    const sqlRemove = "delete from donor where Donor_id = ?";
+    db.query(sqlRemove , Donor_id , (error , result) => {
+        if( error ) {
+            console.log(error);
+        }
+    })
+
+})
+
 app.get("/" , (req , res) => {
     res.send("Hello Express");
 })
