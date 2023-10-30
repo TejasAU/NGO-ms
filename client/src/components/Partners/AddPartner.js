@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate , useParams , Link } from "react-router-dom";
-import "./AddEdit.css";
+import "./AddPartner.css";
 import axios from "axios";
 import { toast } from "react-toastify";
 
