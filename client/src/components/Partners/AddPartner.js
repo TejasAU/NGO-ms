@@ -18,13 +18,21 @@ const AddEdit = () => {
 
     const history = useNavigate();
 
+    const {id} = useParams; 
+    
+    // useEffect(() => {
+    //     axios.get(`http://localhost:5000/api/partner/get/${Partner_id}`)
+    //     .then((resp) => setState({...resp.data[0]}));
+    // } , [Partner_id])
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if(!Partner_id || !Name || !email || !contact_no) {
             toast.error("Please provide value into each input field");
         } else {
-            axios
-            .post("http://localhost:5000/api/post", {
+            
+                axios
+            .post("http://localhost:5000/api/partner/post", {
                 Partner_id,
                 Name,
                 email,
@@ -35,6 +43,7 @@ const AddEdit = () => {
             })
             .catch((err) => toast.error(err.response.data));
             toast.success("contact Added Successfully");
+            
             setTimeout(() => history("/"), 500);
         }
     }
@@ -88,7 +97,7 @@ const AddEdit = () => {
                 value={contact_no}
                 onChange={handleInputChange}
                 />
-                <input type="submit" value="Save"/>
+                <input type="submit" value={Partner_id ? "Update" : "Save"}/>
                 <Link to="/">
                     <input type="button" value="Go Back"/>
                 </Link>

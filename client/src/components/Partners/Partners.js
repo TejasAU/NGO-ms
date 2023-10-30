@@ -9,13 +9,21 @@ const Partners = () => {
     const [data, setData ] = useState([]);
 
     const loadData = async () => {
-        const response = await axios.get("http://localhost:5000/api/get");
+        const response = await axios.get("http://localhost:5000/api/partner/get");
         setData(response.data);
     }
 
     useEffect(() => {
         loadData();
     }, []);
+
+    const deleteContact = (Partner_id) => {
+        if(window.confirm("Confirm Delete?")) {
+            axios.delete(`http://localhost:5000/api/partner/remove/${Partner_id}`);
+            toast.success("Partner Deleted Succesffully");
+            setTimeout(() => loadData(), 500);
+        }
+    }
     return(
         <div style={{marginTop: "150 px"}}>
             <Link to="/addContact">
@@ -42,12 +50,12 @@ const Partners = () => {
                                 <td>{item.email}</td>
                                 <td>{item.contact_no}</td>
                                 <td>
-                                    <Link to={`/update/${item.id}`}>
+                                    <Link to={`/update/${item.Partner_id}`}>
                                     <button className="btn btn-edit">
                                         Edit
                                     </button>
                                     </Link>
-                                    <button className="btn btn-delete">
+                                    <button className="btn btn-delete" onClick ={() => deleteContact(item.Partner_id)}>
                                         Delete
                                     </button>
                                     <Link to={`/view/${item.id}`}>

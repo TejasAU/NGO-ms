@@ -13,6 +13,8 @@ function App() {
         <Routes>
           <Route exact path='/' Component={Partners}/>
           <Route path='/addContact' Component={AddEdit}/>
+          <Route path='/update/:id' Component={AddEdit}/>
+
         </Routes>
       </div>
     </BrowserRouter>
