@@ -126,6 +126,26 @@ app.delete("/api/donor/remove/:Donor_id" , (req , res ) => {
 
 })
 
+//Work API
+
+app.get("/api/work/get" , (req , res) => {
+    const displayWork = "select * from work";
+    db.query(displayWork, (error , result) =>{
+        res.send(result);
+    })
+})
+
+app.delete("/api/work/remove/:Donor_id" , (req , res ) => {
+    const { Work_id } = req.params;
+    const sqlRemove = "delete from work where Work_id = ?";
+    db.query(sqlRemove , Work_id , (error , result) => {
+        if( error ) {
+            console.log(error);
+        }
+    })
+
+})
+
 app.get("/" , (req , res) => {
     res.send("Hello Express");
 })

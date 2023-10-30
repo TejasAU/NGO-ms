@@ -7,6 +7,7 @@ import AddEdit from './components/Partners/AddPartner';
 import Staff from './components/Staff/Staff'
 import Event from './components/Event/Event';
 import Donor from './components/Donor/Donor';
+import Work from './components/Work/Work';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path='/staff' Component={Staff}/>
           <Route path='/event' Component={Event}/>
           <Route path='/donor' Component={Donor}/>
+          <Route path='/work' Component={Work}/>
 
         </Routes>
       </div>
