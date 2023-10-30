@@ -34,6 +34,7 @@ const AddEdit = () => {
                 setState({ Partner_id: "", Name: "", email: "", contact_no: ""});
             })
             .catch((err) => toast.error(err.response.data));
+            toast.success("contact Added Successfully");
             setTimeout(() => history("/"), 500);
         }
     }
