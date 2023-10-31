@@ -10,6 +10,8 @@ import Donor from './components/Donor/Donor';
 import Work from './components/Work/Work';
 import Supervisor from './components/Supervisor/Supervisor';
 import AwarenessSessions from './components/AwarenessSessions/AwarenessSessions';
+import Cash from './components/Cash/Cash';
+import CrowdFunding from './components/CrowdFunding/CrowdFunding';
 
 function App() {
   return (
@@ -26,7 +28,8 @@ function App() {
           <Route path='/work' Component={Work}/>
           <Route path='/supervisor' Component={Supervisor}/>
           <Route path='/AwarenessSessions' Component={AwarenessSessions}/>
-
+          <Route path='/Cash' Component={Cash}/>
+          <Route path='/CrowdFunding' Component={CrowdFunding}/>
         </Routes>
       </div>
     </BrowserRouter>

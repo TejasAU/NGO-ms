@@ -186,6 +186,45 @@ app.delete("/api/awarenesssessions/remove/:Work_id" , (req , res ) => {
 
 })
 
+//Cash API
+
+app.get("/api/cash/get" , (req , res) => {
+    const displayCash = "select * from cash";
+    db.query(displayCash, (error , result) =>{
+        res.send(result);
+    })
+})
+
+app.delete("/api/cash/remove/:Work_id" , (req , res ) => {
+    const { Work_id } = req.params;
+    const sqlRemove = "delete from awareness_sessions where Work_id = ?";
+    db.query(sqlRemove , Work_id , (error , result) => {
+        if( error ) {
+            console.log(error);
+        }
+    })
+
+})
+
+//Crowd Funding API
+
+app.get("/api/crowdfunding/get" , (req , res) => {
+    const displayEvent = "select * from crowdfunding";
+    db.query(displayEvent, (error , result) =>{
+        res.send(result);
+    })
+})
+
+app.delete("/api/crowdfunding/remove/: Event_id" , (req , res ) => {
+    const {  Event_id} = req.params;
+    const sqlRemove = "delete from crowdfunding where  Event_id = ?";
+    db.query(sqlRemove ,  Event_id , (error , result) => {
+        if( error ) {
+            console.log(error);
+        }
+    })
+
+})
 
 //testing
 
