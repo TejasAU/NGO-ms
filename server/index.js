@@ -146,6 +146,29 @@ app.delete("/api/work/remove/:Donor_id" , (req , res ) => {
 
 })
 
+//Supervisor API
+
+app.get("/api/supervisor/get" , (req , res) => {
+    const displaySupervisor = "select * from supervisor";
+    db.query(displaySupervisor, (error , result) =>{
+        res.send(result);
+    })
+})
+
+app.delete("/api/supervisor/remove/:SUP_ID" , (req , res ) => {
+    const { SUP_ID } = req.params;
+    const sqlRemove = "delete from supervisor where SUP_ID = ?";
+    db.query(sqlRemove , SUP_ID , (error , result) => {
+        if( error ) {
+            console.log(error);
+        }
+    })
+
+})
+
+
+//testing
+
 app.get("/" , (req , res) => {
     res.send("Hello Express");
 })
