@@ -31,7 +31,7 @@ const AddEdit = () => {
             toast.error("Please provide value into each input field");
         } else {
             
-                axios
+            axios
             .post("http://localhost:5000/api/partner/post", {
                 Partner_id,
                 Name,

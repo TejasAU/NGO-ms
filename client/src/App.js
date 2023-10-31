@@ -12,6 +12,7 @@ import Supervisor from './components/Supervisor/Supervisor';
 import AwarenessSessions from './components/AwarenessSessions/AwarenessSessions';
 import Cash from './components/Cash/Cash';
 import CrowdFunding from './components/CrowdFunding/CrowdFunding';
+import Home from './components/Home/Home'
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
       <div className="App">
         <ToastContainer position="top-center"/>
         <Routes>
-          <Route exact path='/' Component={Partners}/>
+          <Route exact path='/' Component={Home}/>
+          <Route path='/partners' Component={Partners}/>
           <Route path='/addContact' Component={AddEdit}/>
           <Route path='/update/:id' Component={AddEdit}/>
           <Route path='/staff' Component={Staff}/>
