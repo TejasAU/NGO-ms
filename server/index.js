@@ -166,6 +166,26 @@ app.delete("/api/supervisor/remove/:SUP_ID" , (req , res ) => {
 
 })
 
+//AwarenessSessions API
+
+app.get("/api/awarenesssessions/get" , (req , res) => {
+    const displayAwarenessSessions = "select * from awareness_sessions";
+    db.query(displayAwarenessSessions, (error , result) =>{
+        res.send(result);
+    })
+})
+
+app.delete("/api/awarenesssessions/remove/:Work_id" , (req , res ) => {
+    const { Work_id } = req.params;
+    const sqlRemove = "delete from awareness_sessions where Work_id = ?";
+    db.query(sqlRemove , Work_id , (error , result) => {
+        if( error ) {
+            console.log(error);
+        }
+    })
+
+})
+
 
 //testing
 
